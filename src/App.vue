@@ -1,12 +1,10 @@
 <script setup>
-import Counter from "./components/HelloWorld.vue"
+import Layout from "./layout/Layout.vue";
+import { useDarkMode } from './composables/useDarkMode.js';
+
+const {changeMode} = useDarkMode()
 </script>
 
 <template>
-  <h1>hola mundo</h1>
-  <Counter count="30"/>
+  <Layout/>
 </template>
-
-<style scoped>
-
-</style>
