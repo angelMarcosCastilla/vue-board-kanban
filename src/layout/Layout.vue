@@ -1,14 +1,14 @@
 <script setup>
 import Aside from "./Aside.vue";
 import Header from "./Header.vue";
-import Main from "./Main.vue"
+import Main from "./Main.vue";
 </script>
 <template>
   <div class="layout">
     <Header classes="header" />
     <Aside classes="aside" />
     <Main classes="main">
-      zxczcsad
+      <router-view/>
     </Main>
   </div>
 </template>
@@ -18,8 +18,8 @@ import Main from "./Main.vue"
   display: grid;
   width: 100vw;
   height: 100vh;
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 250px 1fr;
+  grid-template-rows: 96px 1fr;
+  grid-template-columns: 300px 1fr;
   grid-template-areas: "header header" "aside main";
 }
 

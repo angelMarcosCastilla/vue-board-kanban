@@ -1,0 +1,4 @@
+<template setup >
+
+  hola
+</template>
