@@ -4,7 +4,7 @@ const { theme, changeTheme } = useDarkMode();
 </script>
 
 <template>
-  <div class="flex justify-center gap-5 py-3 rounded-md w-10/12 m-auto bg-slate-300 dark:bg-slate-800">
+  <div class="flex justify-center gap-5 py-3 rounded-md  bg-slate-300 dark:bg-slate-800">
     <div>
       <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" class="text-slate-500">
         <path
