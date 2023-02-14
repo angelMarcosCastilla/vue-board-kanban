@@ -1,23 +1,28 @@
 <script setup>
 import SwitchTheme from '../components/SwitchTheme.vue';
 import MenuItem from "../components/MenuItem.vue";
+import Modal from "../components/Modal.vue";
+import { useBoardStore } from "../store/board"
+
 const props = defineProps({
   classes: {
     type: String,
   },
 });
+const boardData = useBoardStore()
 
-const data = ["1", "2", "3"]
 </script>
 
 <template>
   <aside :class="classes"
     class="bg-slate-100 dark:bg-slate-700 border-gray-300 dark:border-slate-500 border-r flex flex-col justify-between ">
     <div>
-      <h3 class="text-slate-500 dark:text-slate-300 text-bold px-4 py-3 font-bold">All board <span>12</span></h3>
+      <h3 class="text-slate-500 dark:text-slate-300 text-bold px-4 py-3 font-bold">All board <span>{{
+        boardData.board.length
+      }}</span></h3>
       <ul class="flex flex-col gap-1">
-        <MenuItem v-for="route in data" :to="`/board/${route}`" :key="route" :label="route" />
-        <router-link to="to" class=" w-11/12 block pl-4 py-3  text-violet-500 text-[16px] font-bold
+        <MenuItem v-for="route in boardData.board" :to="`/board/${route.id}`" :key="route.id" :label="route.name" />
+        <button class=" w-11/12 block pl-4 py-3  text-violet-500 text-[16px] font-bold
     hover:text-violet-600 rounded-r-3xl cursor-pointer ">
           <li class="flex items-center  gap-6">
             <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
@@ -30,7 +35,7 @@ const data = ["1", "2", "3"]
             </span>
           </li>
 
-        </router-link>
+        </button>
       </ul>
     </div>
     <footer class=" pb-4 w-11/12 mx-auto">
@@ -46,5 +51,6 @@ const data = ["1", "2", "3"]
         </span>
       </div>
     </footer>
+    <Modal title="Create board" />
   </aside>
 </template>
